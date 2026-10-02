@@ -16,7 +16,7 @@ class CartPage extends StatelessWidget {
                 spacing: 20,
                 crossAxisAlignment: .end,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 150,
                     width: 150,
                     child: ClipRRect(
@@ -80,7 +80,7 @@ class CartPage extends StatelessWidget {
                 spacing: 20,
                 crossAxisAlignment: .end,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 150,
                     width: 150,
                     child: ClipRRect(

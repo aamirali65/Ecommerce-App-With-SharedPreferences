@@ -1,5 +1,5 @@
-name: testing
-description: "A new Flutter project."
+name: ecommerce_app
+description: "FACIO - a Flutter ecommerce app with local authentication and session persistence using shared_preferences."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev

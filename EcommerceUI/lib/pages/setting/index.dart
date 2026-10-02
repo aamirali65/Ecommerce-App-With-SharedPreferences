@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:testing/pages/auth/login/index.dart';
+import 'package:ecommerce_app/pages/auth/login/index.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});

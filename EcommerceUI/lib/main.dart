@@ -1,12 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:testing/pages/cart/index.dart';
-import 'package:testing/pages/home/index.dart';
-import 'package:testing/pages/serach/index.dart';
-import 'package:testing/pages/setting/index.dart';
-import 'package:testing/pages/splash/index.dart';
+import 'package:ecommerce_app/pages/cart/index.dart';
+import 'package:ecommerce_app/pages/home/index.dart';
+import 'package:ecommerce_app/pages/serach/index.dart';
+import 'package:ecommerce_app/pages/setting/index.dart';
+import 'package:ecommerce_app/pages/splash/index.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Online Shop',
+      title: 'FACIO - Ecommerce App',
       theme: ThemeData(
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFFF7F7F7),
@@ -39,7 +36,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
-  List Pages = [
+  List pages = [
     Home(),
     CartPage(),
     SettingPage()
@@ -59,7 +56,7 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
 
         title: const Text(
-          'Online Shop',
+          'FACIO',
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.w800,
@@ -96,14 +93,14 @@ class _HomePageState extends State<HomePage> {
       ),
 
       // BODY
-      body: Pages[selectedIndex],
+      body: pages[selectedIndex],
 
       // BOTTOM NAVIGATION
       bottomNavigationBar: NavigationBar(
         height: 72,
         backgroundColor: Colors.white,
 
-        indicatorColor: Theme.of(context).colorScheme.primary.withOpacity(0.12),
+        indicatorColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.12),
 
         selectedIndex: selectedIndex,
 

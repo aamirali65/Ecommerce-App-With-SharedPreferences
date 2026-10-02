@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:testing/main.dart';
-import 'package:testing/pages/auth/register/index.dart';
+import 'package:ecommerce_app/main.dart';
+import 'package:ecommerce_app/pages/auth/register/index.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,14 +24,15 @@ class _LoginScreenState extends State<LoginScreen> {
     final localPass = passController.text.trim();
 
     //this is session email
-    final Session = await SharedPreferences.getInstance();
-    final sessionEmail = Session.getString('email');
-    final sessionPass = Session.getString('pass');
+    final session = await SharedPreferences.getInstance();
+    final sessionEmail = session.getString('email');
+    final sessionPass = session.getString('pass');
 
 
 
     //empty input check
-    if(localEmail.isEmpty || localEmail.isEmpty){
+    if(localEmail.isEmpty || localPass.isEmpty){
+      if(!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text("Kindly Fill All the Fields!"))
       );
@@ -43,10 +44,12 @@ class _LoginScreenState extends State<LoginScreen> {
     //condition
 
     if(localEmail == sessionEmail && localPass == sessionPass){
-      await Session.setBool('checkLogin', true);
+      await session.setBool('checkLogin', true);
+      if(!mounted) return;
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePage()));
     }else{
 
+      if(!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Email and Password is Incorrect!"))
       );

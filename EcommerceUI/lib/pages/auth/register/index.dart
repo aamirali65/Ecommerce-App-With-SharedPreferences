@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:testing/pages/auth/login/index.dart';
+import 'package:ecommerce_app/pages/auth/login/index.dart';
 
 
 class RegisterScreen extends StatefulWidget {
@@ -41,6 +41,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     await session.setString('name', name);
     await session.setString('email', email);
     await session.setString('pass', password);
+
+    if(!mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text("User Register Successfully"))
